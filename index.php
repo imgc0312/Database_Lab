@@ -5,7 +5,7 @@
 		<title>登入</title>
 	</head>
 	<body>
-		<form method="post" action="conn_mysql.php">
+		<form method="post" action="login.php">
 			帳號：<input type="text" name="userId"/><br>
 			密碼：<input type="password" name="password"/><br>
 			<input type="submit" value="登入"/>

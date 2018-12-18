@@ -1,7 +1,7 @@
 <?php //學生資料 個人資料 (可供修改) 
 require("connMysql.php");
 global $DB_CONNECT;
-session.start();
+session_start();
 $sql = 'SELECT * 
 FROM student
 WHERE id = ' . $_SESSION['user']['id'];

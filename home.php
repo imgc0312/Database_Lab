@@ -5,6 +5,7 @@
 		<title>首頁</title>
 	</head>
 	<body>
-		登入成功
+		教師功能<br>
+		<input type="button" value="上傳教材" onclick="window.location.href='materialUpload.php';"/>
 	</body>
 </html>

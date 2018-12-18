@@ -1,5 +1,5 @@
 <?php
-	require "conn_mysql.php";
+	require "connMysql.php";
 
 	/*
      * Password hash function

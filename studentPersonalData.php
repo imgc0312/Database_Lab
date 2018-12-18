@@ -1,10 +1,10 @@
 <?php //學生資料 個人資料 (可供修改) 
 require("connMysql.php");
 global $DB_CONNECT;
+
 session_start();
-$sql = 'SELECT * 
-FROM student
-WHERE id = ' . $_SESSION['user']['id'];
+
+$sql = 'SELECT * FROM student WHERE id = ' . "'" . $_SESSION['user']['id'] . "'";
 $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
 ?>
 
@@ -18,12 +18,12 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
 <body>
 <?php $rs=mysqli_fetch_assoc($data); ?>
 <div class="Data">
-  <form method="post" action="studentPersonalDataUpdata" name="form">
+  <form method="post" action="studentPersonalDataUpdata.php" name="form">
     <table width="100%" border="3">
     	<tbody>
             <tr>
               <th width="20%" scope="col">ID</th>
-              <th width="80%" scope="col"><?php $rs['ID'] ?></th>
+              <th width="80%" scope="col"><?php echo $rs['ID'] ?></th>
             </tr>
             <tr>
               <th scope="row">Name</th>

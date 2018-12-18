@@ -1,5 +1,6 @@
 <?php //學生資料 個人資料 (可供修改) 
 require("connMysql.php");
+require("ourLib.php");
 global $DB_CONNECT;
 
 session_start();
@@ -40,7 +41,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
             </tr>
             <tr>
               <th scope="row">Email</th>
-              <td><input name="Email" id="Email" maxlength="80" type="email" <?php echo 'value = ' . $rs['Email'] ?>/></td>
+              <td><input name="Email" id="Email" maxlength="80" type="email" <?php echo 'value = ' . ourToS($rs['Email']) ?>/></td>
             </tr>
             <tr>
               <th scope="row">Department</th>

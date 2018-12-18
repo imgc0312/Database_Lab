@@ -1,33 +1,12 @@
 <?php //學生資料 個人資料 (可供修改) 
 require("connMysql.php");
 global $DB_CONNECT;
+session.start();
 $sql = 'SELECT * 
 FROM student
 WHERE id = ' . $_SESSION['user']['id'];
 $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
 ?>
-
-<?php //updata 資料 
-$newBirthday=$_POST['Birthday'];
-$newEmail=$_POST['Email'];
-
-if(issset($newBirthday)){
-	$sql2 = 'UPDATA student
-	SET Birthday = ' . $newBirthday . '
-	WHERE id = ' . $_SESSION['user']['id'];
-	mysqli_query($DB_CONNECT, $sql2);
-}
-
-if(issset($newEmail)){
-	$sql2 = 'UPDATA student
-	SET Email = ' . $newEmail . '
-	WHERE id = ' . $_SESSION['user']['id'];
-	mysqli_query($DB_CONNECT, $sql2);
-}
-
-header("location:studentPersonalData.php");
-?>
-
 
 <!doctype html>
 <html>
@@ -39,7 +18,7 @@ header("location:studentPersonalData.php");
 <body>
 <?php $rs=mysqli_fetch_assoc($data); ?>
 <div class="Data">
-  <form method="post" action="" name="form">
+  <form method="post" action="studentPersonalDataUpdata" name="form">
     <table width="100%" border="3">
     	<tbody>
             <tr>

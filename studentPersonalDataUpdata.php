@@ -1,7 +1,7 @@
 <?php //學生資料 個人資料 (可供修改) 
 require("connMysql.php");
 global $DB_CONNECT;
-session.start();
+session_start();
 $newBirthday=$_POST['Birthday'];
 $newEmail=$_POST['Email'];
 

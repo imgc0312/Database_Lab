@@ -1,5 +1,5 @@
 <?php
-	require("ourLib.php");
+	require("libs/ourLib.php");
 ?>
 <!DOCTYPE html>
 <html>

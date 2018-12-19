@@ -1,6 +1,6 @@
 <?php //學生 個人修課 清單
-require("connMysql.php");
-require("ourLib.php");
+require("libs/connMysql.php");
+require("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
 $sql = 'SELECT course.Code, course.Type, course.NameCh, course.NameEn

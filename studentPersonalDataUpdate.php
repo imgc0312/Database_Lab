@@ -1,6 +1,6 @@
 <?php //學生資料 個人資料 (可供修改) 
-require("connMysql.php");
-require("ourLib.php");
+require("libs/connMysql.php");
+require("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
 $newBirthday=$_POST['Birthday'];

@@ -1,5 +1,5 @@
 <?php 
-require("connMysql.php");
+require("libs/connMysql.php");
 global $DB_CONNECT;
 $data=mysqli_query($DB_CONNECT, 'select Code, Type, NameCh, NameEn from course order by Code');//取得所有課程資料
 $RANK = 0;

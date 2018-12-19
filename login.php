@@ -1,5 +1,5 @@
 <?php
-	require "loginFunc.php";
+	require "libs/loginFunc.php";
 	
 	session_start();
 	
@@ -7,7 +7,7 @@
 	$password = filter_input(INPUT_POST, 'password', FILTER_DEFAULT);
 	
 	if(login($userId, $password)) {
-		header("Location:courseInfo.php");
+		header("Location:home.php");
 		exit;
 	}
 	else {

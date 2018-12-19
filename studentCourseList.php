@@ -24,14 +24,14 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有修課資料
      $rs=mysqli_fetch_assoc($data);
 ?>
 	<div class="CourseViewGenerator">
-        <form method="get" action="">
+        <form method="get" action="studentCourseInfo.php">
         	<input type="hidden" name="act" value="information" />
-        	<table align="center">
+        	<table align="center" width="100%" border="3">
             	<tr>
-                	<td width="20%"><input name="Code" readonly><?php echo $rs['Code']?></input></td>
-                    <td width="10%"><input readonly><?php echo $rs['Type']?></input></td>
-                    <td width="30%"><input readonly><?php echo $rs['NameCh']?></input></td>
-                    <td width="30%"><input readonly><?php echo $rs['NameEn']?></input></td>
+                	<td width="20%"><input type="text" name="Code" readonly value="<?php echo $rs['Code']?>" /></td>
+                    <td width="10%"><input type="text" readonly value="<?php echo $rs['Type']?>" /></td>
+                    <td width="30%"><input type="text" readonly value="<?php echo $rs['NameCh']?>" /></td>
+                    <td width="30%"><input type="text" readonly value="<?php echo $rs['NameEn']?>" /></td>
                     <td width="10%"><input type="submit" value="enter" /></td>
                 </tr>
             </table>

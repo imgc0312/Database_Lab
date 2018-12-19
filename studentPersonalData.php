@@ -19,7 +19,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
 <body>
 <?php $rs=mysqli_fetch_assoc($data); ?>
 <div class="Data">
-  <form method="post" action="studentPersonalDataUpdata.php" name="form">
+  <form method="post" action="studentPersonalDataUpdate.php" name="form">
     <table width="100%" border="3">
     	<tbody>
             <tr>

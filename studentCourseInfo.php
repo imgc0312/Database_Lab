@@ -36,14 +36,14 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
             </table>
         	<table align="center"  width="100%" border="3"><!-- 顯示資料 -->
             	<tr>
-                	<td ><input name="Code" readonly><?php echo $rs['Code']?></input></td>
-                    <td ><input readonly><?php echo $rs['Type']?></input></td>
+                	<td ><input type="text" name="Code" readonly value="<?php echo $rs['Code']?>" /></td>
+                    <td ><?php echo $rs['Type']?></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input readonly><?php echo $rs['NameCh']?></input></td>
+                    <td colspan="2"><?php echo $rs['NameCh']?></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input readonly><?php echo $rs['NameEn']?></input></td>
+                    <td colspan="2"><?php echo $rs['NameEn']?></td>
                 </tr>
                 
             <?php //依act 決定輸出

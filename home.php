@@ -11,12 +11,12 @@
 		<?php echo getTime(); ?>
 		你好<br>
 		<input type="button" value="課程列表" onclick="window.location.href='courseInfo.php';"/>
-		<input type="button" value="學生資料" onclick="window.location.href='studentPersonalData.php';"/>
 		<h1>學生功能</h1><br>
-		個人資料(可供修改)<br>
 		作業(繳交情況、上傳作業)<br>
 		查詢全班、個人成績<br>
+		<input type="button" value="學生資料" onclick="window.location.href='studentPersonalData.php';"/>
 		<input type="button" value="下載教材" onclick="window.location.href='material.php';"/>
+		<input type="button" value="學生選課" onclick="window.location.href='studentCourseList.php';"/>
 		<h1>教師功能</h1><br>
 		出作業<br>
 		更新大綱、成績計算<br>

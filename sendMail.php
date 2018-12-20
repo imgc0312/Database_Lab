@@ -4,10 +4,10 @@
 	use PHPMailer\PHPMailer\PHPMailer;
 	use PHPMailer\PHPMailer\Exception;
 	
-	require("/PHPMailer/src/Exception.php");
-	require("/PHPMailer/src/PHPMailer.php");
-	require("/PHPMailer/src/SMTP.php");
-	require("config/config.php");
+	require_once("/PHPMailer/src/Exception.php");
+	require_once("/PHPMailer/src/PHPMailer.php");
+	require_once("/PHPMailer/src/SMTP.php");
+	require_once("config/config.php");
 	
 	if($_POST["to"] == "" || $_POST["subject"] == "" || $_POST["message"] == "") {
 		echo "<script language=javascript>";

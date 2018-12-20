@@ -1,5 +1,5 @@
 <form method="post" action="sendMail.php">
-	<table border="1" width=500>
+	<table border="1" width="500">
 		<tbody>
 			<tr>
 				<th scope="row">To</th>

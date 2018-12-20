@@ -1,5 +1,5 @@
 <?php
-	require("libs/downloadFunc.php");
+	require_once("libs/downloadFunc.php");
 	
 	// 檢查變數已設置且不為NULL
 	if(isset($_GET["course"]) && isset($_GET["filename"])) {

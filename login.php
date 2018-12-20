@@ -1,5 +1,5 @@
 <?php
-	require "libs/loginFunc.php";
+	require_once "libs/loginFunc.php";
 	
 	session_start();
 	

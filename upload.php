@@ -1,6 +1,6 @@
 <?php
-	require("libs/connMysql.php");
-	require("libs/ourLib.php");
+	require_once("libs/connMysql.php");
+	require_once("libs/ourLib.php");
 	global $DB_CONNECT;
 	
 	if(isset($_POST["course"])) {

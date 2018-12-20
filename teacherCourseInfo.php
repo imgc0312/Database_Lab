@@ -1,8 +1,21 @@
 <?php //教師 個人 課程頁面(可編輯)
-require("libs/connMysql.php");
-require("libs/ourLib.php");
+require_once("libs/connMysql.php");
+require_once("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
+switch($_SESSION['user']['privilege']){//權限檢查
+	case 'admin':
+	case 'teacher':
+		break;
+	case 'student':
+	default:
+		echo "
+		<script>
+			alert('you do not have privilege to use this page.');
+			history.back();
+		</script>";
+}
+
 $Code = $_GET['Code'];
 if(isset($_GET['act']))
 	$act = $_GET['act'];
@@ -33,7 +46,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
         	<input type="hidden" name="Code" value="<?php echo $Code ?>"/>
         	<table align="center" width="100%" border="3"><!-- 功能選單 -->
             	<tr>
-                	<td ><button style="width:100%" type="button" value="回列表" onClick="location.href = 'teacherCourseList.php';" /></td>
+                	<td ><button style="width:100%" type="button" onClick="location.href = 'teacherCourseList.php';" >回列表</button></td>
                 	<td ><input style="width:100%" type="submit" name="act" value="information" /></td>
                     <td ><input style="width:100%" type="submit" name="act" value="material" /></td>
                     <td ><input style="width:100%" type="submit" name="act" value="homework" /></td>
@@ -61,23 +74,23 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
               case "information"://資訊
        ?>
        <table  align="center" width="100%" border="3">
-       	<form method="post"><!-- 修改大綱 -->
+       	<form method="post" action="courseInfoUpdate.php"><!-- 修改大綱 -->
         	<input type="hidden" name="Code" value="<?php echo $rs['Code']?>"/>
             <input type="hidden" name="act" value="Syllabus"/>
           <tr>
-          	<td width="80%" align="center">大綱</td>
-            <td width="20%" align="center"><button>修改</button></td>
+          	<td width="95%" align="center">大綱</td>
+            <td width="5%" align="center"><button style="width:100%">修改</button></td>
           </tr>
-          <tr><td colspan="2" align="center"><textarea name="Content" rows="5"><?php echo $rs['Syllabus']?></textarea></td></tr>
+          <tr><td colspan="2" align="center"><textarea style="width:100%;text-align:center" name="content" rows="5"><?php echo $rs['Syllabus']?></textarea></td></tr>
         </form>
-        <form  method="post"><!-- 成績計算方式 -->
+        <form method="post" action="courseInfoUpdate.php"><!-- 成績計算方式 -->
         	<input type="hidden" name="Code" value="<?php echo $rs['Code']?>"/>
             <input type="hidden" name="act" value="Evaluation"/>
           <tr>
           	<td align="center">成績計算方式</td>
-            <td width="20%" align="center"><button>修改</button></td>
+            <td align="center"><button style="width:100%">修改</button></td>
           </tr>
-          <tr><td colspan="2" align="center"><textarea name="Content" rows="5"><?php echo $rs['Evaluation']?></textarea></td></tr>
+          <tr><td colspan="2" align="center"><textarea style="width:100%;text-align:center" name="content" rows="5"><?php echo $rs['Evaluation']?></textarea></td></tr>
          </form>
        </table>  
           <?php
@@ -87,13 +100,14 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
         	<p>待補</p>
           <?php
               	break;
-              case 'homework'://作業
+              case 'homework'://看作業上傳
 		?>
+        	<?php include("teacherHW.php"); ?>
         	<p>待補</p>
           <?php
               	break;
               case 'grade'://成績
-                  //印你的成績
+                  //改學生成績
 			?>
             	<p>待補</p>
           <?php

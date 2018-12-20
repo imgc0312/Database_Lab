@@ -1,6 +1,6 @@
 <?php //學生 個人 課程頁面
-require("libs/connMysql.php");
-require("libs/ourLib.php");
+require_once("libs/connMysql.php");
+require_once("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
 $Code = $_GET['Code'];
@@ -31,7 +31,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
         	<input type="hidden" name="Code" value="<?php echo $Code ?>"/>
         	<table align="center" width="100%" border="3"><!-- 功能選單 -->
             	<tr>
-                	<td ><button style="width:100%" type="button" value="回列表" onClick="location.href = 'studentCourseList.php';" /></td>
+                	<td ><button style="width:100%" type="button" value="back" onClick="location.href = 'studentCourseList.php';" >回列表</button></td>
                 	<td ><input style="width:100%" type="submit" name="act" value="information" /></td>
                     <td ><input style="width:100%" type="submit" name="act" value="material" /></td>
                     <td ><input style="width:100%" type="submit" name="act" value="homework" /></td>

@@ -1,4 +1,5 @@
 <?php
+	// 老師評分 作業+學期成績
 	require_once("libs/connMysql.php");
 	require_once("libs/ourLib.php");
 	global $DB_CONNECT;
@@ -17,11 +18,10 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>教材上傳</title>
+		<title>批改成績</title>
 	</head>
 	<body>
-		<!--表單包含檔案上傳, enctype設為"multipart/form-data"-->
-		<form method="post" enctype="multipart/form-data" action="upload.php">
+		<form method="get" action="eval.php">
 			選擇課程：<input list="courseList" name="course"/>
 			<datalist id="courseList">
 				<?php
@@ -31,10 +31,7 @@
 					}
 				?>
 			</datalist><br>
-			檔案上傳：
-			<!--讓網頁可以一次上傳多個檔案, 在<input>中加上multiple屬性, 並將檔案名稱加上[]-->
-			<input type="file" name="fileToUpload[]" id="fileToUpload" multiple>
-			<input type="submit" value="上傳" name="upload">
+			<input type="submit" value="確定" name="submit">
 		</form>
 	</body>
 </html>

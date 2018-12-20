@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>登入</title>
+		<title>數位學習系統 - 登入</title>
 	</head>
 	<body>
 		<form method="post" action="login.php">

@@ -1,7 +1,7 @@
 <!-- add comment -->
 <?php //學生 個人 課程頁面
-require("libs/connMysql.php");
-require("libs/ourLib.php");
+require_once("libs/connMysql.php");
+require_once("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
 $Code = $_POST['Code'];

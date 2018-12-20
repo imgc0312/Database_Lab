@@ -9,8 +9,8 @@ if(isset($_GET['act']))
 else
 	$act = "information";
 $sql = 'SELECT course.*
-FROM course, coursesel
-WHERE course.Code = coursesel.Code AND coursesel.StuID = ' . ourToS($_SESSION['user']['id']) . ' AND course.Code = ' . ourToS($Code);
+		FROM course, coursesel
+		WHERE course.Code = coursesel.Code AND coursesel.StuID = ' . ourToS($_SESSION['user']['id']) . ' AND course.Code = ' . ourToS($Code);
 $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
 ?>
 
@@ -31,11 +31,12 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
         	<input type="hidden" name="Code" value="<?php echo $Code ?>"/>
         	<table align="center" width="100%" border="3"><!-- 功能選單 -->
             	<tr>
-                	<td ><input type="submit" name="act" value="information" /></td>
-                    <td ><input type="submit" name="act" value="material" /></td>
-                    <td ><input type="submit" name="act" value="homework" /></td>
-                    <td ><input type="submit" name="act" value="grade" /></td>
-                    <td ><input type="submit" name="act" value="comment" /></td>
+                	<td ><button style="width:100%" type="button" value="回列表" onClick="location.href = 'studentCourseList.php';" /></td>
+                	<td ><input style="width:100%" type="submit" name="act" value="information" /></td>
+                    <td ><input style="width:100%" type="submit" name="act" value="material" /></td>
+                    <td ><input style="width:100%" type="submit" name="act" value="homework" /></td>
+                    <td ><input style="width:100%" type="submit" name="act" value="grade" /></td>
+                    <td ><input style="width:100%" type="submit" name="act" value="comment" /></td>
                 </tr>
             </table>
        </form>

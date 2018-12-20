@@ -1,5 +1,5 @@
 <?php
-	require "/config/config.php";
+	require_once "/config/config.php";
 	
 	$DB_CONNECT = mysqli_connect(DB_LOCATION, DB_ID, DB_PASS, DB_NAME)
 					or die("MySQL connection error");

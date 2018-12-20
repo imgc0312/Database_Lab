@@ -5,6 +5,6 @@ function ourToS($value){
 
 function getTime(){
 	date_default_timezone_set("Asia/Taipei");
-	return date("Y-m-d H:i:s") . "<br>";
+	return date("Y-m-d H:i:s");
 }
 ?>

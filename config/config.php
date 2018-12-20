@@ -7,4 +7,9 @@
 	define("DB_PASS", "");
 	// 資料庫名稱
 	define("DB_NAME", "");
+
+	// SMTP username
+	define("MAIL_USERNAME", "");
+	// SMTP password
+	define("MAIL_PASS", "");
 ?>

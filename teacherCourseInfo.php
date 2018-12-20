@@ -2,7 +2,9 @@
 require_once("libs/connMysql.php");
 require_once("libs/ourLib.php");
 global $DB_CONNECT;
-session_start();
+if(!session_id()){//判斷session是否開啟
+	session_start();
+}
 switch($_SESSION['user']['privilege']){//權限檢查
 	case 'admin':
 	case 'teacher':
@@ -97,10 +99,34 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
               	break;
               case 'material'://教材
 		?>
-        	<p>待補</p>
+        	<table  align="center" width="100%" border="3">
+            	<tr>
+                  	<td >upload new File</td>
+                </tr>
+                <tr>
+                  	<td ><?php include("materialUpload.php"); ?></td>
+                </tr>
+                <tr>
+                  	<td >File List</td>
+                </tr>
+			<?php
+				$sql = 'SELECT *
+						FROM material
+						WHERE CourseCode = ' . ourToS($Code) . '
+						ORDER BY ID DESC';
+				$data2 = mysqli_query($DB_CONNECT, $sql);
+				for($i=1;$i<=mysqli_num_rows($data2);$i++){//迴圈印出教材
+					$rs2=mysqli_fetch_assoc($data2);
+			?>
+                <tr>
+                    <td><a href='materialDownload.php?course=<?php echo $rs2["CourseCode"] ?>&filename=<?php echo $rs2["FileName"] ?>'><?php echo  rawurldecode($rs2['FileName']) ?></a></td>
+                </tr>
+       		<?php }//迴圈印出教材 結尾 ?>
+          	</table>
+            
           <?php
               	break;
-              case 'homework'://看作業上傳
+              case 'homework'://作業 發布及修改
 		?>
         	<?php include("teacherHW.php"); ?>
         	<p>待補</p>
@@ -109,7 +135,12 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
               case 'grade'://成績
                   //改學生成績
 			?>
-            	<p>待補</p>
+            <div>
+				<?php 
+                    $_GET['course']=$Code;
+                    include("eval.php");
+                ?>
+            </div>
           <?php
               	break;
               case 'comment'://留言板

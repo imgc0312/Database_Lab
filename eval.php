@@ -69,7 +69,7 @@
 					}
 				?>
 			</table>
-		</from><br>
+		</form><br>
 		<input type="submit" value="確認修改" name="submit">
 	</body>
 </html>

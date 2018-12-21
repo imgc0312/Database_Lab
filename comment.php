@@ -5,13 +5,14 @@ require_once("libs/ourLib.php");
 global $DB_CONNECT;
 session_start();
 $Code = $_POST['Code'];
+$oURL = $_POST['oURL'];
 $UID = $_SESSION['user']['id'];
 @$Content = $_POST['Content'];
 if(isset($Content)){//有輸入	
 	$sql = 'INSERT INTO message (Code, UserId, Content)
 	VALUES ( ' . ourToS($Code) . ',' . ourToS($UID) . ',' . ourToS($Content) . ' )';
 	mysqli_query($DB_CONNECT, $sql);
-	$tURL = 'studentCourseInfo.php?act=comment&Code=' . $Code;
+	$tURL = $oURL.'?act=comment&Code=' . $Code;
 	header("location:$tURL");
 }
 else{//無輸入
@@ -26,6 +27,7 @@ else{//無輸入
 
 <body>
 	<form method="post" action="comment.php">
+		<input type="hidden" name="oURL" value="<?php echo $oURL; ?>" />
     	<table width="100%" align="center" border="3">
         	<tr>
             	<td width="20%">course</td>

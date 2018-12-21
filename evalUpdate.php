@@ -13,7 +13,6 @@
 		" WHERE CourseCode = " . ourToS($course) .
 		" AND HwName = " . ourToS($hwName[$i]) .
 		" AND StuID = " . ourToS($hwStuId[$i]) . ";";
-		echo $sql . "<br>";
 		mysqli_query($DB_CONNECT, $sql);
 	}
 	
@@ -27,5 +26,8 @@
 		mysqli_query($DB_CONNECT, $sql);
 	}
 	
-	header("Location: evalSelect.php");
+	echo "<script language=javascript>";
+	echo "history.back();";
+	echo "</script>";
+	exit;
 ?>

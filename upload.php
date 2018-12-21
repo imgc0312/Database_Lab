@@ -36,7 +36,15 @@
 					$file = $_FILES["fileToUpload"]["tmp_name"][$i];
 					
 					// 將檔案移至指定位置
-					move_uploaded_file($file, $dest);
+					// @關閉警告
+					@$check = move_uploaded_file($file, $dest);
+					if($check == FALSE) {
+						echo "<script language=javascript>";
+						echo "alert('位置錯誤！');";
+						echo "history.back();";
+						echo "</script>";
+						exit;
+					}
 					
 					// 插入到資料庫
 					$sql = "INSERT INTO material(CourseCode, FileName)
@@ -46,7 +54,7 @@
 			}
 			else {
 				echo "<script language=javascript>";
-				echo "alert('上傳發生錯誤，請選擇課程與上傳檔案！');";
+				echo "alert('上傳發生錯誤，請重新上傳檔案！');";
 				echo "history.back();";
 				echo "</script>";
 				exit;

@@ -43,9 +43,7 @@
 			$stdContent = '<input type="button" value="個人資料" onclick="location.href=' . "'studentPersonalData.php';" . '"/>' .
 			'<input type="button" value="我的課程" onclick="location.href=' . "'studentCourseList.php';" . '"/>';
 			$tchContent = '<input type="button" value="我的課程" onclick="location.href=' . "'teacherCourseList.php';" . '"/>' .
-			'<input type="button" value="上傳教材" onclick="location.href=' . "'materialUpload.php';" . '"/>' .
-			'<input type="button" value="發送公告" onclick="location.href=' . "'mail.php';" . '"/>' .
-			'<input type="button" value="批改成績" onclick="location.href=' . "'evalSelect.php';" . '"/>';
+			'<input type="button" value="發送公告" onclick="location.href=' . "'mail.php';" . '"/>';
 			switch($RANK) {
 				case 0:
 					echo $stdContent;

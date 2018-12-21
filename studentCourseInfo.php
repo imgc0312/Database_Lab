@@ -203,6 +203,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
 
 <!-- 隱藏表單 -->
 <form style="display:none" id="addCommentForm" method="post" action="comment.php"><!-- 用於add comment-->
+	<input type="hidden" name="oURL" value="studentCourseInfo.php" />
 	<input type="text" name="Code" value="<?php echo $Code ?>" />
 </form>
 </body>

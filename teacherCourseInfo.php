@@ -26,7 +26,8 @@ else
 $sql = "SELECT course.*
 	FROM course, teacher
 	WHERE teacher.ID = " . ourToS($_SESSION['user']['id']) . " AND
-	course.Instructor = teacher.TchName
+	course.Instructor = teacher.TchName AND
+	course.Code = " . ourToS($Code) . "
 	ORDER BY course.Code";
 $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
 ?>
@@ -104,7 +105,10 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
                   	<td >upload new File</td>
                 </tr>
                 <tr>
-                  	<td ><?php include_once("materialUpload.php"); ?></td>
+                  	<td >
+						<?php $_GET['course']=$Code;
+						include_once("materialUpload.php"); ?>
+					</td>
                 </tr>
                 <tr>
                   	<td >File List</td>
@@ -129,7 +133,6 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
               case 'homework'://作業 發布及修改
 		?>
         	<?php include_once("teacherHW.php"); ?>
-        	<p>待補</p>
           <?php
               	break;
               case 'grade'://成績
@@ -184,6 +187,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
 
 <!-- 隱藏表單 -->
 <form style="display:none" id="addCommentForm" method="post" action="comment.php"><!-- 用於add comment-->
+	<input type="hidden" name="oURL" value="teacherCourseInfo.php" />
 	<input type="text" name="Code" value="<?php echo $Code ?>" />
 </form>
 </body>

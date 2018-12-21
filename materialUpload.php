@@ -3,7 +3,9 @@
 	require_once("libs/ourLib.php");
 	global $DB_CONNECT;
 	
-	session_start();
+	if(!session_id()) {
+		session_start();
+	}
 	
 	$sql = "SELECT course.Code
 	FROM course, teacher

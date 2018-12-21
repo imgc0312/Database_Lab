@@ -104,7 +104,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
                   	<td >upload new File</td>
                 </tr>
                 <tr>
-                  	<td ><?php include("materialUpload.php"); ?></td>
+                  	<td ><?php include_once("materialUpload.php"); ?></td>
                 </tr>
                 <tr>
                   	<td >File List</td>
@@ -128,7 +128,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
               	break;
               case 'homework'://作業 發布及修改
 		?>
-        	<?php include("teacherHW.php"); ?>
+        	<?php include_once("teacherHW.php"); ?>
         	<p>待補</p>
           <?php
               	break;
@@ -138,7 +138,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得課程資料
             <div>
 				<?php 
                     $_GET['course']=$Code;
-                    include("eval.php");
+                    include_once("eval.php");
                 ?>
             </div>
           <?php

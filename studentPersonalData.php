@@ -17,6 +17,8 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有個人資料
 </head>
 
 <body>
+<button onclick="location.href='home.php'">回首頁</button>
+<br><br>
 <?php $rs=mysqli_fetch_assoc($data); ?>
 <div class="Data">
   <form method="post" action="studentPersonalDataUpdate.php" name="form">

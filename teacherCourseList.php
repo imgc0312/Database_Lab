@@ -19,6 +19,7 @@ $data=mysqli_query($DB_CONNECT, $sql);//取得所有授課資料
 </head>
 
 <body>
+	<button onclick="location.href='home.php'">回首頁</button>
 	<table align="center" width="100%" border="3">
 <?php //以迴圈輸出data
 	  for($i=1;$i<=mysqli_num_rows($data);$i++){

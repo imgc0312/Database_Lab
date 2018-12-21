@@ -99,7 +99,7 @@ if(isset($_POST['Decide'])){
 		<td ><?php echo $rs2['HwName'] ?></td>
         <td ><?php echo $rs2['StartTime'] ?></td>
         <td ><?php echo $rs2['EndTime'] ?></td>
-        <td ><button onClick="location.href(<?php echo 'eval.php?course='.$Code ?>)">匹改</button></td>
+        <td ><button style="width:100%" onClick="alert('待補')">匹改</button></td>
     </tr>
 <?php }	//迴圈印出comment 結尾?>
 </table>

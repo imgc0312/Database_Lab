@@ -54,7 +54,6 @@
 				case 2:
 					echo '<h1>學生功能</h1><br>' . $stdContent;
 					echo '<h1>教師功能</h1><br>' . $tchContent . '<br>';
-					echo '超過規定繳交時間的作業，系統自動上傳到另外一區，方便老師評分<br>';
 					break;
 			}
 		?>
